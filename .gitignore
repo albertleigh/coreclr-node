@@ -1,0 +1,5 @@
+build/
+cmake-build-cmakejs-debug/
+node_modules/
+
+.idea/
