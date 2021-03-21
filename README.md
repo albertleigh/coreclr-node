@@ -21,3 +21,19 @@ cmake
     -DNODE_ARCH="x64" 
     -DCMAKE_JS_LIB="C:\Users\wentaoli\.cmake-js\node-x64\v14.16.0\win-x64\node.lib" 
     -DCMAKE_SHARED_LINKER_FLAGS="/DELAYLOAD:NODE.EXE"
+
+
+# linux
+
+cmake 
+"/home/ali/Workspaces/CppWs/main-addon" 
+--no-warn-unused-cli 
+-G"Unix Makefiles" 
+-DCMAKE_JS_VERSION="6.1.0" 
+-DCMAKE_BUILD_TYPE="Debug" 
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY="/home/ali/Workspaces/CppWs/main-addon/build/Debug" 
+-DCMAKE_JS_INC="/home/ali/.cmake-js/node-x64/v14.16.0/include/node" 
+-DCMAKE_JS_SRC="" 
+-DNODE_RUNTIME="node" 
+-DNODE_RUNTIMEVERSION="14.16.0" 
+-DNODE_ARCH="x64"
