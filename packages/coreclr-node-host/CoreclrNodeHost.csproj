@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PackageVersion>0.0.1</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>CoreclrNodeHost</PackageId>
+    <Authors>albertli90</Authors>
+    <Company>albertli90</Company>
+
+    <Title>Access node host environ</Title>
+    <Description>This library provides necessary APIs to communicate with the node host when running in a CLR hosted by the `coreclr-addon` node module.</Description>
+    <Copyright>Wentao Li 2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <MinClientVersion>0.0.0</MinClientVersion>
+    <!-- <PackageIconUrl></PackageIconUrl> -->
+    <!-- <PackageReleaseNotes></PackageReleaseNotes> -->
+    <PackageTags>node;javascript</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSource>false</IncludeSource>
+    <IsTool>false</IsTool>
+    <RepositoryUrl>git@github.com:albertleigh/coreclr-node.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>main</RepositoryBranch>
+    <!-- <RepositoryCommit></RepositoryCommit> -->
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

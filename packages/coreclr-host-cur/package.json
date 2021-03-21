@@ -1,0 +1,20 @@
+{
+  "name": "@albertli90/coreclr-host-cur",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A node addon hosts core clr",
+  "main": "index.js",
+  "keywords": [],
+  "dependencies": {
+    "cmake-js": "^6.1.0",
+    "bindings": "^1.5.0",
+    "node-addon-api": "^3.1.0"
+  },
+  "scripts": {
+    "download-hostfxr": "dotnet build hostfxr/DownloadHostFxr.csproj",
+    "compile:cmake": "cmake-js compile",
+    "compile": "npm run download-hostfxr && npm run compile:cmake"
+  },
+  "author": "",
+  "license": "MIT"
+}

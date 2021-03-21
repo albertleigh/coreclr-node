@@ -1,0 +1,15 @@
+{
+  "name": "@albertli90/coreclr-node-host",
+  "private": "true",
+  "description": "",
+  "main": "CoreclrNodeHost.dll",
+  "scripts": {
+    "clean": "dotnet clean",
+    "compile:debug": "dotnet build",
+    "compile:release": "dotnet build -c Release",
+    "compile": "npm run clean && npm run compile:release"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

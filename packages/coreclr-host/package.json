@@ -1,0 +1,9 @@
+{
+  "name": "@albertli90/coreclr-host",
+  "version": "0.0.1",
+  "description": "A node addon hosts core clr",
+  "main": "main.js",
+  "keywords": ["coreclr"],
+  "author": "Wentao LI",
+  "license": "MIT"
+}

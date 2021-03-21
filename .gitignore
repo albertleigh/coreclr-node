@@ -1,11 +1,8 @@
-.cmake/
-CMakeFiles/
-Testing/
-build/
-cmake-build-cmakejs-debug/
-node_modules/
+bin/
+obj/
 
-CMakeCache.txt
-Makefile
+build/
+cmake-build/
+node_modules/
 
 .idea/

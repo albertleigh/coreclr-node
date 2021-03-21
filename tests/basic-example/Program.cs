@@ -1,23 +1,3 @@
-<h1 align="center">coreclr node</h1>
-
-<div align="center">
-
-[![npm version](https://img.shields.io/npm/v/@albertli90/coreclr-host.svg)](https://www.npmjs.com/package/@albertli90/coreclr-host)
-[![nuget version](https://img.shields.io/nuget/v/CoreclrNodeHost)](https://www.nuget.org/packages/CoreclrNodeHost)
-
-A simple bridge between coreclr and nodejs
-</div>
-
-> *This is a very early release of this package, do not suggest using it in production till latter stable version*
-
-
-Add the CoreclrNodeHost reference to the csproj config
-```xml
-<PackageReference Include="CoreclrNodeHost" Version="0.0.1" />
-```
-
-create an example c# entry class
-```csharp
 namespace BasicExample
 {
     using System;
@@ -70,36 +50,3 @@ namespace BasicExample
         }
     }
 }
-```
-
-then invoke the static method from javascript
-```javascript
-const assert = require('assert');
-const path = require('path');
-const coreclrhost = require('@albertli90/coreclr-host');
-
-const result = coreclrhost.runCoreApp(
-    path.join(__dirname, 'bin', 'Debug', 'netcoreapp3.1', 'BasicExample.dll'),
-    "AdditionalArgument"
-);
-
-const setMainTcsResult = coreclrhost.callManagedFunction(
-    "BasicExample.Program",
-    "setMainTcs",
-    true,
-    1e3,
-    "oneString",
-    {
-        message: "oneMessageStringInObj"
-    }
-)
-
-assert.strictEqual(typeof setMainTcsResult, "object");
-assert.strictEqual(setMainTcsResult.argCount, 4);
-assert.strictEqual(setMainTcsResult.message, "oneMessageStringInResultObj");
-
-
-(async ()=>{
-    assert.strictEqual(await result, 0);    
-})()
-```

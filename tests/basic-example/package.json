@@ -1,0 +1,15 @@
+{
+  "name": "@albertli90/basic-example",
+  "private": "true",
+  "main": "test.js",
+  "dependencies": {
+    "@albertli90/coreclr-host": "0.0.1"
+  },
+  "scripts": {
+    "clean": "dotnet clean",
+    "compile:debug": "dotnet build",
+    "compile:release": "dotnet build -c Release",
+    "compile": "npm run clean && npm run compile:debug",
+    "start": "node main.js"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@albertli90/basic-tests",
+  "private": "true",
+  "main": "test.js",
+  "dependencies": {
+    "@albertli90/coreclr-host-cur": "0.0.0",
+    "mocha": "^8.3.2"
+  },
+  "scripts": {
+    "clean": "dotnet clean",
+    "compile:debug": "dotnet build",
+    "compile:release": "dotnet build -c Release",
+    "compile": "npm run clean && npm run compile:debug",
+    "test": "node node_modules/mocha/bin/mocha -s -0"
+  }
+}

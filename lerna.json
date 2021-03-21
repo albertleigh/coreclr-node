@@ -1,0 +1,22 @@
+{
+  "packages": [
+    "packages/*",
+    "tests/*"
+  ],
+  "version": "0.4.0",
+  "npmClient": "npm",
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    },
+    "version": {
+      "allowBranch": [
+        "develop",
+        "release/*",
+        "feature/*",
+        "*/*"
+      ],
+      "message": "chore(release): publish %s"
+    }
+  }
+}
