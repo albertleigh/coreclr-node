@@ -1,0 +1,16 @@
+{
+  "name": "@albertli90/easy-tests",
+  "private": true,
+  "description": "",
+  "main": "test.js",
+  "devDependencies": {
+    "@albertli90/coreclr-host-cur": "0.0.0"
+  },
+  "scripts": {
+    "clean": "dotnet clean",
+    "compile:debug": "dotnet build",
+    "compile:release": "dotnet build -c Release",
+    "compile": "npm run clean && npm run compile:debug",
+    "start": "node test.js"
+  }
+}

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PackageVersion>0.0.1</PackageVersion>
+    <PackageVersion>0.0.2</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,7 +13,7 @@
     <Company>albertli90</Company>
 
     <Title>Access node host environ</Title>
-    <Description>This library provides necessary APIs to communicate with the node host when running in a CLR hosted by the `coreclr-addon` node module.</Description>
+    <Description>This library provides necessary APIs to communicate with the node host when running in a CLR hosted by the `coreclr-host` node module.</Description>
     <Copyright>Wentao Li 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <MinClientVersion>0.0.0</MinClientVersion>

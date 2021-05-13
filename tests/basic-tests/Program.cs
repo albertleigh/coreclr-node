@@ -36,6 +36,12 @@ namespace TestApp
              return result;
           }
 
+          public static int EmptyInputMethod(JsValue[] args)
+          {
+              args.Should().BeNull();
+              return 0;
+          }
+
         public static Task<int> Main(string[] args)
         {
             var mainCtx = SynchronizationContext.Current;
@@ -43,9 +49,10 @@ namespace TestApp
             var host = NodeHost.Instance;
             var tcs = new TaskCompletionSource<int>();
 
-            /*Console.WriteLine("Waiting for debugger!");
-            while(!System.Diagnostics.Debugger.IsAttached) System.Threading.Thread.Sleep(50);*/
-            //System.Diagnostics.Debugger.Launch();
+            // Console.WriteLine("Waiting for debugger!");
+            // while(!System.Diagnostics.Debugger.IsAttached) System.Threading.Thread.Sleep(50);
+            // System.Diagnostics.Debugger.Launch();
+            // Console.WriteLine("Main Debugger awaited!");
 
             host.Global.registerAsyncTest(new Func<Task>(() => Task.Delay(5)));
 

@@ -126,6 +126,13 @@ const helloDotnetFunctionResult = coreclrhosting.callManagedFunction(
 )
 console.log("HelloDotnetFunction", helloDotnetFunctionResult);
 
+const emptyCnt = coreclrhosting.callManagedFunction(
+    "TestApp.Program",
+    "EmptyInputMethod"
+);
+console.log("EmptyInputMethod", emptyCnt);
+assert.strictEqual(emptyCnt, 0);
+
 describe('coreclrhosting', function () {
 
   it ('should seize the string from HelloDotnetFunction', ()=>{

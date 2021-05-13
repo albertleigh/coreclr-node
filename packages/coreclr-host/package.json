@@ -1,6 +1,6 @@
 {
   "name": "@albertli90/coreclr-host",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node addon hosts core clr",
   "main": "main.js",
   "keywords": ["coreclr"],

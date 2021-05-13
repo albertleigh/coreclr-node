@@ -134,10 +134,15 @@ namespace CoreclrNodeHost.NativeHost
             if (tMethod == null) throw new Exception("Cannot find the corresponding method");
 
             var result = _host.Scheduler.RunCallbackSynchronously(s =>
-               tMethod.Invoke(null, new Object[]
-                {
-                   jsArgV.Select(jsPtr => (JsValue) Marshal.PtrToStructure(jsPtr, typeof(JsValue))).ToArray()
-                }),
+               tMethod.Invoke(null,
+                   jsArgV == null ? 
+                       new object[]
+                       {
+                           null
+                       }:
+                       new object[]{
+                           jsArgV.Select(jsPtr => (JsValue) Marshal.PtrToStructure(jsPtr, typeof(JsValue))).ToArray()
+                        }),
                null
             );
             Marshal.StructureToPtr(DotNetValue.FromObject(result, _host), resultValue, false);
