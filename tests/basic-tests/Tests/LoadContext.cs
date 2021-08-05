@@ -15,14 +15,17 @@ namespace TestApp.Tests
             loaded.Should().BeSameAs(ownAssembly);
         }
 
-        public void It_should_be_the_default_context()
+        // Cannot force using asm default context
+        // For Default LoadContext, this override always returns null since Default Context cannot override itself.
+        // https://github.com/dotnet/coreclr/blob/master/Documentation/design-docs/assemblyloadcontext.md
+        public void It_should_not_be_the_default_context()
         {
             var nheAlc = AssemblyLoadContext.GetLoadContext(typeof(IBridgeToNode).Assembly);
             var myAlc = AssemblyLoadContext.GetLoadContext(typeof(LoadContext).Assembly);
             var defaultAlc = AssemblyLoadContext.Default;
-
-            nheAlc.Should().BeSameAs(defaultAlc);
-            myAlc.Should().BeSameAs(defaultAlc);
+        
+            nheAlc.Should().NotBeSameAs(defaultAlc);
+            myAlc.Should().NotBeSameAs(defaultAlc);
         }
     }
 }

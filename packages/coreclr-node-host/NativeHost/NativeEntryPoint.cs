@@ -37,16 +37,24 @@ namespace CoreclrNodeHost.NativeHost
                                                   string[] argv,
                                                   IntPtr resultValue)
         {
+            
+            // Console.WriteLine($"NativeEntryPoint c :: asm path {_assembly_path}");
+            // Console.WriteLine("NativeEntryPoint Waiting for debugger!");
+            // while(!System.Diagnostics.Debugger.IsAttached) System.Threading.Thread.Sleep(50);
+            // System.Diagnostics.Debugger.Launch();
+            // Console.WriteLine("NativeEntryPoint Debugger awaited!");
+            
+            
             // Switch to default ALC
-            var myAlc = AssemblyLoadContext.GetLoadContext(typeof(NativeEntryPoint).Assembly);
-            if (myAlc != AssemblyLoadContext.Default)
-            {
-                var inCtx = AssemblyLoadContext.Default.LoadFromAssemblyName(typeof(NativeEntryPoint).Assembly.GetName());
-                var tInCtx = inCtx.GetType(typeof(NativeEntryPoint).FullName);
-                tInCtx.GetMethod(nameof(RunHostedApplication), BindingFlags.Static | BindingFlags.NonPublic)
-                      .Invoke(null, new object[] { context, nativeMethodsPtr, argc, argv, resultValue });
-                return;
-            }
+            // var myAlc = AssemblyLoadContext.GetLoadContext(typeof(NativeEntryPoint).Assembly);
+            // if (myAlc != AssemblyLoadContext.Default)
+            // {
+            //     var inCtx = AssemblyLoadContext.Default.LoadFromAssemblyName(typeof(NativeEntryPoint).Assembly.GetName());
+            //     var tInCtx = inCtx.GetType(typeof(NativeEntryPoint).FullName);
+            //     tInCtx.GetMethod(nameof(RunHostedApplication), BindingFlags.Static | BindingFlags.NonPublic)
+            //           .Invoke(null, new object[] { context, nativeMethodsPtr, argc, argv, resultValue });
+            //     return;
+            // }
 
             var nativeMethods = Marshal.PtrToStructure<NativeApi>(nativeMethodsPtr);
 
@@ -95,24 +103,31 @@ namespace CoreclrNodeHost.NativeHost
          [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.SysInt, SizeParamIndex = 2)] IntPtr[] jsArgV,
          IntPtr resultValue)
       {
+          
+          // Console.WriteLine($"InvokeManagedFunction c :: asm path {_assembly_path}");
+          // Console.WriteLine("InvokeManagedFunction Waiting for debugger!");
+          // while(!System.Diagnostics.Debugger.IsAttached) System.Threading.Thread.Sleep(50);
+          // System.Diagnostics.Debugger.Launch();
+          // Console.WriteLine("InvokeManagedFunction Debugger awaited!");
+          
          // Switch to default ALC
-         var myAlc = AssemblyLoadContext.GetLoadContext(typeof(NativeEntryPoint).Assembly);
-         if (myAlc != AssemblyLoadContext.Default)
-         {
-            var inCtx = AssemblyLoadContext.Default.LoadFromAssemblyName(typeof(NativeEntryPoint).Assembly.GetName());
-            var tInCtx = inCtx.GetType(typeof(NativeEntryPoint).FullName);
-
-            tInCtx.GetMethod(nameof(InvokeManagedFunction), BindingFlags.Static | BindingFlags.NonPublic)
-               .Invoke(null, new object[]
-               {
-                  argc,
-                  argv,
-                  jsArgC,
-                  jsArgV,
-                  resultValue
-               });
-            return;
-         }
+         // var myAlc = AssemblyLoadContext.GetLoadContext(typeof(NativeEntryPoint).Assembly);
+         // if (myAlc != AssemblyLoadContext.Default)
+         // {
+         //    var inCtx = AssemblyLoadContext.Default.LoadFromAssemblyName(typeof(NativeEntryPoint).Assembly.GetName());
+         //    var tInCtx = inCtx.GetType(typeof(NativeEntryPoint).FullName);
+         //
+         //    tInCtx.GetMethod(nameof(InvokeManagedFunction), BindingFlags.Static | BindingFlags.NonPublic)
+         //       .Invoke(null, new object[]
+         //       {
+         //          argc,
+         //          argv,
+         //          jsArgC,
+         //          jsArgV,
+         //          resultValue
+         //       });
+         //    return;
+         // }
 
          if (_host == null)
          {

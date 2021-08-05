@@ -11,6 +11,6 @@
     "chalk": "^4.1.0"
   },
   "scripts": {
-    "compile": "lerna run compile"
+    "compile": "lerna run compile --stream"
   }
 }
